@@ -3,2307 +3,1797 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HORLAZ CO WEAR - Premium Fashion Store</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <title>HORLAZ CO WEAR | Premium Urban Fashion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* ====== BASE STYLES ====== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
         }
 
         :root {
-            --primary-gold: #D4AF37;
-            --luxury-black: #1a1a1a;
-            --pure-white: #ffffff;
-            --accent-gold: #B8860B;
-            --dark-gray: #2c2c2c;
-            --light-gray: #f8f8f8;
-            --shadow-gold: rgba(212, 175, 55, 0.3);
+            --primary: #c41e3a;
+            --dark: #121212;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --success: #28a745;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            line-height: 1.6;
-            color: var(--luxury-black);
-            overflow-x: hidden;
-        }
-
-        /* Header & Navigation */
-        .header {
-            background: linear-gradient(135deg, var(--luxury-black), var(--dark-gray));
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--primary-gold);
-            text-decoration: none;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .logo:hover {
-            color: var(--accent-gold);
-            transform: scale(1.05);
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            color: var(--pure-white);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav-menu a:hover {
-            color: var(--primary-gold);
-        }
-
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background: var(--primary-gold);
-            transition: width 0.3s ease;
-        }
-
-        .nav-menu a:hover::after {
-            width: 100%;
-        }
-
-        .header-actions {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .contact-info {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .contact-btn {
-            background: var(--primary-gold);
-            color: var(--luxury-black);
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-weight: bold;
-        }
-
-        .contact-btn:hover {
-            background: var(--accent-gold);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px var(--shadow-gold);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--pure-white);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Admin Panel Styles */
-        .admin-toggle {
-            position: fixed;
-            top: 50%;
-            left: 10px;
-            background: var(--primary-gold);
-            color: var(--luxury-black);
-            border: none;
-            padding: 0.5rem;
-            border-radius: 0 10px 10px 0;
-            cursor: pointer;
-            z-index: 2500;
-            font-size: 0.8rem;
-            writing-mode: vertical-lr;
-            transform: translateY(-50%);
-            font-weight: bold;
-        }
-
-        .admin-panel {
-            position: fixed;
-            top: 0;
-            left: -400px;
-            width: 400px;
-            height: 100vh;
-            background: var(--luxury-black);
-            color: var(--pure-white);
-            z-index: 3000;
-            transition: left 0.3s ease;
-            overflow-y: auto;
-            border-right: 3px solid var(--primary-gold);
-        }
-
-        .admin-panel.active {
-            left: 0;
-        }
-
-        .admin-header {
-            background: var(--primary-gold);
-            color: var(--luxury-black);
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .admin-content {
-            padding: 2rem;
-        }
-
-        .admin-btn {
-            background: var(--primary-gold);
-            color: var(--luxury-black);
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            cursor: pointer;
-            margin: 0.5rem;
-            transition: all 0.3s ease;
-            font-weight: bold;
-        }
-
-        .admin-btn:hover {
-            background: var(--accent-gold);
-            transform: translateY(-2px);
-        }
-
-        .product-form {
-            background: var(--dark-gray);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-        }
-
-        .product-form input,
-        .product-form select,
-        .product-form textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #555;
-            border-radius: 8px;
-            background: var(--pure-white);
-            margin-bottom: 1rem;
-            outline: none;
-        }
-
-        .image-upload {
-            border: 2px dashed var(--primary-gold);
-            padding: 2rem;
-            text-align: center;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 1rem;
-        }
-
-        .image-upload:hover {
-            background: rgba(212, 175, 55, 0.1);
-        }
-
-        .image-preview {
-            max-width: 200px;
-            max-height: 200px;
-            border-radius: 10px;
-            margin-top: 1rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--luxury-black) 0%, var(--dark-gray) 100%);
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            color: var(--primary-gold);
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--pure-white);
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.3s both;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease 0.6s both;
-        }
-
-        .cta-btn {
-            background: linear-gradient(45deg, var(--primary-gold), var(--accent-gold));
-            color: var(--luxury-black);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px var(--shadow-gold);
-        }
-
-        .cta-btn.secondary {
-            background: transparent;
-            border: 2px solid var(--primary-gold);
-            color: var(--primary-gold);
-        }
-
-        .cta-btn.secondary:hover {
-            background: var(--primary-gold);
-            color: var(--luxury-black);
+            background: var(--light);
+            color: var(--dark);
+            padding-top: 80px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 5%;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background: #a81830;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(196, 30, 58, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--dark);
+        }
+
+        .btn-success {
+            background: var(--success);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
         }
 
         .section-title {
+            font-size: 2.5rem;
             text-align: center;
-            font-size: 3rem;
-            color: var(--luxury-black);
             margin-bottom: 3rem;
             position: relative;
         }
 
-        .section-title::after {
+        .section-title:after {
             content: '';
-            width: 100px;
-            height: 3px;
-            background: var(--primary-gold);
             position: absolute;
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
         }
 
-        /* Categories Section */
-        .categories {
-            padding: 5rem 0;
-            background: var(--light-gray);
-        }
-
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .category-card {
-            background: var(--pure-white);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .category-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .category-image {
-            height: 200px;
-            background: linear-gradient(45deg, var(--primary-gold), var(--accent-gold));
+        /* ====== ADMIN SYSTEM ====== */
+        .admin-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: var(--dark);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
-            color: var(--luxury-black);
+            cursor: pointer;
+            z-index: 9999;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+            font-size: 24px;
         }
 
-        .category-info {
-            padding: 1.5rem;
-            text-align: center;
+        .admin-btn:hover {
+            background: var(--primary);
+            transform: rotate(90deg);
         }
 
-        .category-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--luxury-black);
-        }
-
-        .category-info p {
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        /* Products Section - MOBILE OPTIMIZED */
-        .featured-products {
-            padding: 5rem 0;
-            background: var(--pure-white);
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .product-card {
-            background: var(--pure-white);
+        .admin-panel {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 40px;
             border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        }
-
-        /* SMALLER PRODUCT IMAGES */
-        .product-image {
-            height: 180px;
-            background: linear-gradient(135deg, var(--light-gray), #e0e0e0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .placeholder-icon {
-            font-size: 2.5rem;
-            color: var(--luxury-black);
-            opacity: 0.3;
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 0.8rem;
-            left: 0.8rem;
-            background: var(--primary-gold);
-            color: var(--luxury-black);
-            padding: 0.25rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: bold;
-        }
-
-        .sale-badge {
-            background: red;
-            color: white;
-        }
-
-        .product-info {
-            padding: 1rem;
-        }
-
-        .product-name {
-            font-size: 1rem;
-            margin-bottom: 0.4rem;
-            color: var(--luxury-black);
-            font-weight: bold;
-        }
-
-        .product-description {
-            color: #666;
-            font-size: 0.8rem;
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-        }
-
-        .product-price {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--primary-gold);
-            margin-bottom: 0.8rem;
-        }
-
-        .product-stock {
-            color: #666;
-            font-size: 0.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .add-to-cart {
-            width: 100%;
-            background: var(--luxury-black);
-            color: var(--pure-white);
-            border: none;
-            padding: 0.8rem;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-
-        .add-to-cart:hover {
-            background: var(--primary-gold);
-            color: var(--luxury-black);
-        }
-
-        .add-to-cart:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-        }
-
-        /* Filter Buttons */
-        .filter-btn {
-            background: var(--pure-white);
-            border: 2px solid var(--primary-gold);
-            color: var(--primary-gold);
-            padding: 0.6rem 1rem;
-            border-radius: 20px;
-            cursor: pointer;
-            margin: 0 0.3rem 0.5rem 0;
-            transition: all 0.3s ease;
-            font-weight: bold;
-            font-size: 0.85rem;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: var(--primary-gold);
-            color: var(--luxury-black);
-        }
-
-        /* Payment Styles */
-        .payment-section {
-            background: var(--light-gray);
-            padding: 2rem;
-            border-radius: 15px;
-            margin-top: 2rem;
-        }
-
-        .payment-methods {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .payment-method {
-            background: var(--pure-white);
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            padding: 1rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .payment-method:hover,
-        .payment-method.selected {
-            border-color: var(--primary-gold);
-            background: rgba(212, 175, 55, 0.1);
-        }
-
-        .whatsapp-order {
-            background: #25D366;
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: bold;
-            margin: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .whatsapp-order:hover {
-            background: #128C7E;
-            transform: translateY(-2px);
-        }
-
-        /* Modals */
-        .modal {
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            z-index: 10000;
             display: none;
+            width: 90%;
+            max-width: 450px;
+            animation: fadeIn 0.3s;
+        }
+
+        .edit-toolbar {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 2000;
+            right: 0;
+            background: var(--dark);
+            color: white;
+            padding: 15px 5%;
+            display: none;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
+            z-index: 9998;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
         }
 
-        .modal-content {
-            background: var(--pure-white);
-            padding: 2rem;
-            border-radius: 15px;
-            max-width: 500px;
-            width: 90%;
-            position: relative;
-            max-height: 90vh;
-            overflow-y: auto;
+        .edit-mode .editable:hover {
+            background: rgba(196, 30, 58, 0.1) !important;
+            outline: 2px dashed var(--primary) !important;
+            cursor: text;
         }
 
-        .close-modal {
+        .edit-mode .editable-image:hover:after {
+            content: '🖼️ Click to change image URL';
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
+            background: var(--primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
+        /* ====== HEADER & NAV ====== */
+        header {
+            background: white;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            position: fixed;
             width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            outline: none;
+            top: 0;
+            z-index: 1000;
         }
 
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: var(--primary-gold);
-        }
-
-        .form-btn {
-            width: 100%;
-            background: var(--primary-gold);
-            color: var(--luxury-black);
-            border: none;
-            padding: 1rem;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .form-btn:hover {
-            background: var(--accent-gold);
-        }
-
-        /* Cart Styles */
-        .cart-item {
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem;
-            border-bottom: 1px solid #eee;
+            padding: 20px 5%;
         }
 
-        .cart-item-info {
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--dark);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .search-bar {
             flex: 1;
+            max-width: 500px;
+            margin: 0 30px;
+            position: relative;
         }
 
-        .cart-item-actions {
+        .search-bar input {
+            width: 100%;
+            padding: 12px 45px 12px 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 30px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .search-bar input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .header-icons {
             display: flex;
-            gap: 0.5rem;
+            gap: 25px;
             align-items: center;
         }
 
-        .quantity-btn {
-            background: var(--primary-gold);
-            color: var(--luxury-black);
-            border: none;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
+        .icon-btn {
+            position: relative;
+            font-size: 22px;
+            color: var(--dark);
             cursor: pointer;
-            font-weight: bold;
+            transition: 0.3s;
         }
 
-        /* Floating Cart */
-        .floating-cart {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: var(--primary-gold);
-            color: var(--luxury-black);
-            border: none;
-            padding: 1rem;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.5rem;
-            z-index: 1000;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px var(--shadow-gold);
+        .icon-btn:hover {
+            color: var(--primary);
         }
 
-        .floating-cart:hover {
-            transform: scale(1.1);
-        }
-
-        .cart-count {
+        .badge {
             position: absolute;
-            top: -5px;
-            right: -5px;
-            background: red;
+            top: -8px;
+            right: -8px;
+            background: var(--primary);
             color: white;
             border-radius: 50%;
             width: 20px;
             height: 20px;
+            font-size: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
-        }
-
-        /* Notifications */
-        .notification {
-            position: fixed;
-            top: 100px;
-            right: 2rem;
-            background: var(--primary-gold);
-            color: var(--luxury-black);
-            padding: 1rem;
-            border-radius: 8px;
-            display: none;
-            z-index: 1500;
-            animation: slideInRight 0.5s ease;
-            max-width: 300px;
-        }
-
-        @keyframes slideInRight {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        /* Countdown Timer */
-        .countdown-timer {
-            background: linear-gradient(45deg, red, darkred);
-            color: white;
-            padding: 0.5rem;
-            text-align: center;
             font-weight: bold;
-            animation: pulse 2s infinite;
         }
 
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
+        /* ====== HERO ====== */
+        .hero {
+            background: linear-gradient(135deg, rgba(18,18,18,0.9) 0%, rgba(18,18,18,0.7) 100%), 
+                        url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 5%;
+            text-align: center;
+            border-radius: 0 0 40px 40px;
+            margin-bottom: 60px;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
         }
 
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+            line-height: 1.6;
         }
 
-        .animate-on-scroll.animated {
-            opacity: 1;
-            transform: translateY(0);
+        /* ====== PRODUCTS ====== */
+        .products-section {
+            padding: 80px 0;
         }
 
-        /* MOBILE RESPONSIVE DESIGN - ENHANCED */
+        .filter-bar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .filter-options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .wishlist-btn {
+            background: none;
+            border: none;
+            color: #ddd;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .wishlist-btn.active {
+            color: var(--primary);
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .product-price .old-price {
+            font-size: 1rem;
+            color: var(--gray);
+            text-decoration: line-through;
+            margin-left: 10px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .product-actions button {
+            flex: 1;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* ====== TESTIMONIALS ====== */
+        .testimonials {
+            background: white;
+            padding: 80px 0;
+            margin: 60px 0;
+            border-radius: 40px;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 14px;
+        }
+
+        /* ====== CART MODAL ====== */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            right: -500px;
+            width: 450px;
+            height: 100%;
+            background: white;
+            box-shadow: -5px 0 30px rgba(0,0,0,0.2);
+            z-index: 10001;
+            transition: right 0.4s;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .cart-modal.active {
+            right: 0;
+        }
+
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 10000;
+            display: none;
+        }
+
+        .cart-overlay.active {
+            display: block;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .cart-items {
+            margin-bottom: 30px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+            background: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .cart-summary {
+            background: var(--light);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .summary-row.total {
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-top: 2px solid #ddd;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        /* ====== PAYMENT OPTIONS ====== */
+        .payment-options {
+            margin: 25px 0;
+        }
+
+        .payment-method {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .payment-method:hover, .payment-method.selected {
+            border-color: var(--primary);
+            background: rgba(196, 30, 58, 0.05);
+        }
+
+        .payment-icon {
+            font-size: 30px;
+            color: var(--primary);
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-3px);
+        }
+
+        /* ====== FOOTER ====== */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 80px 5% 40px;
+            margin-top: 80px;
+            border-radius: 40px 40px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-newsletter input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+        }
+
+        /* Product Management Modal */
+.product-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 10002;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background: #f9f9f9;
+}
+
+.product-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.product-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.product-actions button {
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.edit-btn {
+    background: #c41e3a;
+    color: white;
+}
+
+.delete-btn {
+    background: #dc3545;
+    color: white;
+}
+        /* ====== ANIMATIONS ====== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, -60%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
+        }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 2.8rem; }
+            .product-grid { grid-template-columns: repeat(3, 1fr); }
+            .search-bar { display: none; }
+        }
+
         @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--luxury-black);
-                flex-direction: column;
-                padding: 1rem;
-                box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            }
-
-            .nav-menu.active {
-                display: flex;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .logo {
-                font-size: 1.5rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .hero-cta {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-
-            .cta-btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .contact-btn {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-            }
-
-            .admin-panel {
-                width: 100%;
-                left: -100%;
-            }
-
-            /* MOBILE PRODUCT GRID - SMALLER CARDS */
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-                padding: 0 0.5rem;
-            }
-
-            .product-card {
-                border-radius: 10px;
-            }
-
-            .product-image {
-                height: 140px;
-            }
-
-            .product-info {
-                padding: 0.8rem;
-            }
-
-            .product-name {
-                font-size: 0.9rem;
-                margin-bottom: 0.3rem;
-            }
-
-            .product-description {
-                font-size: 0.75rem;
-                margin-bottom: 0.4rem;
-            }
-
-            .product-price {
-                font-size: 1rem;
-                margin-bottom: 0.6rem;
-            }
-
-            .product-stock {
-                font-size: 0.7rem;
-                margin-bottom: 0.8rem;
-            }
-
-            .add-to-cart {
-                padding: 0.6rem;
-                font-size: 0.8rem;
-            }
-
-            .product-badge {
-                top: 0.5rem;
-                left: 0.5rem;
-                padding: 0.2rem 0.5rem;
-                font-size: 0.7rem;
-            }
-
-            .placeholder-icon {
-                font-size: 2rem;
-            }
-
-            /* Filter buttons mobile */
-            .filter-btn {
-                padding: 0.5rem 0.8rem;
-                margin: 0 0.2rem 0.4rem 0;
-                font-size: 0.8rem;
-            }
-
-            /* Category cards mobile */
-            .category-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-
-            .category-image {
-                height: 120px;
-                font-size: 2.5rem;
-            }
-
-            .category-info {
-                padding: 1rem;
-            }
-
-            .category-info h3 {
-                font-size: 1.2rem;
-            }
-
-            /* Payment methods mobile */
-            .payment-methods {
-                grid-template-columns: 1fr;
-            }
-
-            .modal-content {
-                width: 95%;
-                padding: 1rem;
-                margin: 1rem;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
+            .hero h1 { font-size: 2.2rem; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); }
+            .cart-modal { width: 100%; right: -100%; }
+            .header-container { flex-direction: column; gap: 15px; }
         }
 
-        /* EXTRA SMALL MOBILE SCREENS */
-        @media (max-width: 480px) {
-            .product-grid {
-                grid-template-columns: 1fr;
-                max-width: 300px;
-                margin: 3rem auto 0;
-            }
-
-            .product-image {
-                height: 160px;
-            }
-
-            .product-name {
-                font-size: 1rem;
-            }
-
-            .category-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
+        @media (max-width: 576px) {
+            .product-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 2rem; }
+            .hero { padding: 100px 5%; }
         }
     </style>
 </head>
 <body>
-    <!-- Admin Toggle Button -->
-    <button class="admin-toggle" onclick="toggleAdminPanel()">ADMIN</button>
+    <!-- ADMIN SYSTEM -->
+    <div class="admin-btn" id="adminBtn" title="Admin Panel">
+        <i class="fas fa-cog"></i>
+    </div>
 
-    <!-- Admin Panel -->
-    <div class="admin-panel" id="adminPanel">
-        <div class="admin-header">
-            <h3>Admin Panel</h3>
-            <button onclick="closeAdminPanel()" style="background: none; border: none; color: inherit; font-size: 1.5rem; cursor: pointer;">&times;</button>
+    <div class="edit-toolbar" id="editToolbar">
+        <div>
+            <i class="fas fa-edit" style="color: var(--primary);"></i>
+            <strong>EDIT MODE ACTIVE</strong> - Click any text/image to edit
         </div>
-        <div class="admin-content">
-            <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">Add New Product</h4>
-            <form class="product-form" onsubmit="addProduct(event)">
-                <div class="form-group">
-                    <label>Product Name:</label>
-                    <input type="text" id="adminProductName" required>
-                </div>
-                <div class="form-group">
-                    <label>Price (₦):</label>
-                    <input type="number" id="adminProductPrice" required>
-                </div>
-                <div class="form-group">
-                    <label>Category:</label>
-                    <select id="adminProductCategory" required>
-                        <option value="">Select Category</option>
-                        <option value="clothing">Clothing</option>
-                        <option value="footwear">Footwear</option>
-                        <option value="watches">Watches</option>
-                        <option value="accessories">Accessories</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Description:</label>
-                    <textarea id="adminProductDescription" rows="3" placeholder="Product description..."></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Product Image:</label>
-                    <div class="image-upload" onclick="document.getElementById('adminProductImage').click()">
-                        <i class="fas fa-cloud-upload-alt" style="font-size: 2rem; color: var(--primary-gold);"></i>
-                        <p>Click to upload product image</p>
-                        <input type="file" id="adminProductImage" accept="image/*" style="display: none;" onchange="previewImage(this)">
-                        <img id="imagePreview" class="image-preview" style="display: none;">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Stock Quantity:</label>
-                    <input type="number" id="adminProductStock" value="10" required>
-                </div>
-                <div class="form-group">
-                    <label>Featured Product:</label>
-                    <input type="checkbox" id="adminProductFeatured" style="width: auto; margin-right: 0.5rem;">
-                    <span>Mark as featured</span>
-                </div>
-                <button type="submit" class="admin-btn" style="width: 100%;">Add Product</button>
-            </form>
-
-            <div style="margin-top: 2rem;">
-                <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">Product Management</h4>
-                <div id="adminProductList" style="max-height: 300px; overflow-y: auto;">
-                    <!-- Admin product list will be populated here -->
-                </div>
-            </div>
-
-            <div style="margin-top: 2rem;">
-                <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">Quick Actions</h4>
-                <button class="admin-btn" onclick="exportProducts()">Export Products</button>
-                <button class="admin-btn" onclick="viewOrders()">View Orders</button>
-                <button class="admin-btn" onclick="viewCustomers()">View Customers</button>
-            </div>
+        <div style="display: flex; gap: 10px;">
+            <button class="btn" onclick="openAdminDashboard()">
+                <i class="fas fa-tachometer-alt"></i> ADVANCED ADMIN
+            </button>
+            <button class="btn btn-success" onclick="saveAllEdits()">
+                <i class="fas fa-save"></i> SAVE ALL
+            </button>
+            <button class="btn btn-secondary" onclick="exitEditMode()">
+                EXIT EDIT
+            </button>
         </div>
     </div>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="nav-container">
-            <a href="#" class="logo">HORLAZ CO WEAR</a>
-            
-            <nav>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#shop">Shop</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+    <div class="admin-panel" id="adminPanel">
+        <h2 style="margin-bottom: 10px; color: var(--dark);">
+            <i class="fas fa-lock"></i> ADMIN ACCESS
+        </h2>
+        <p style="margin-bottom: 25px; color: var(--gray);">
+            Enter password to edit website content
+        </p>
+        <input type="password" id="adminPassword" placeholder="Admin password" style="width: 100%; padding: 15px; border: 2px solid #eee; border-radius: 8px; font-size: 16px; margin-bottom: 20px;">
+        <button class="btn" onclick="loginAdmin()" style="width: 100%; padding: 15px; font-size: 16px;">
+            <i class="fas fa-sign-in-alt"></i> LOGIN TO EDIT WEBSITE
+        </button>
+        <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #eee; color: var(--gray); font-size: 14px;">
+            <strong>Default password:</strong> horlaz2024<br>
+            <small>You can change it in the code (search for ADMIN_PASSWORD)</small>
+        </div>
+    </div>
 
-            <div class="header-actions">
-                <div class="contact-info">
-                    <a href="tel:+2349154667099" class="contact-btn">
-                        <i class="fas fa-phone"></i> Call
-                    </a>
-                    <a href="https://wa.me/2349154667099" class="contact-btn">
-                        <i class="fab fa-whatsapp"></i> WhatsApp
-                    </a>
+    <!-- CART MODAL -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3 style="margin: 0; font-size: 1.5rem;">Shopping Cart (<span id="cartCount">0</span>)</h3>
+            <button onclick="closeCart()" style="background: none; border: none; font-size: 24px; color: var(--gray); cursor: pointer;">×</button>
+        </div>
+
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be added here -->
+        </div>
+
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span>Subtotal:</span>
+                <span id="cartSubtotal">$0.00</span>
+            </div>
+            <div class="summary-row">
+                <span>Shipping:</span>
+                <span id="cartShipping">Calculated at checkout</span>
+            </div>
+            <div class="summary-row">
+                <span>Discount:</span>
+                <span id="cartDiscount">-$0.00</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total:</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+        </div>
+
+        <div class="payment-options">
+            <h4 style="margin-bottom: 20px;">Select Payment Method</h4>
+            
+            <div class="payment-method" onclick="selectPayment('card')">
+                <div class="payment-icon"><i class="far fa-credit-card"></i></div>
+                <div>
+                    <strong>Credit/Debit Card</strong>
+                    <p style="color: var(--gray); font-size: 14px; margin-top: 5px;">Pay with Visa, Mastercard, etc.</p>
                 </div>
-                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars"></i>
-                </button>
+            </div>
+
+            <div class="payment-method" onclick="selectPayment('paypal')">
+                <div class="payment-icon"><i class="fab fa-paypal"></i></div>
+                <div>
+                    <strong>PayPal</strong>
+                    <p style="color: var(--gray); font-size: 14px; margin-top: 5px;">Fast and secure payment</p>
+                </div>
+            </div>
+
+            <div class="payment-method" onclick="selectPayment('bank')">
+                <div class="payment-icon"><i class="fas fa-university"></i></div>
+                <div>
+                    <strong>Bank Transfer</strong>
+                    <p style="color: var(--gray); font-size: 14px; margin-top: 5px;">Direct bank payment</p>
+                </div>
+            </div>
+
+            <div class="payment-method" onclick="selectPayment('cod')">
+                <div class="payment-icon"><i class="fas fa-money-bill-wave"></i></div>
+                <div>
+                    <strong>Cash on Delivery</strong>
+                    <p style="color: var(--gray); font-size: 14px; margin-top: 5px;">Pay when you receive</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="whatsapp-btn" onclick="orderViaWhatsApp()">
+            <i class="fab fa-whatsapp" style="font-size: 24px;"></i>
+            ORDER VIA WHATSAPP
+        </div>
+
+        <button class="btn" style="width: 100%; margin-top: 20px; padding: 17px;" onclick="checkout()">
+            <i class="fas fa-shopping-bag"></i> PROCEED TO CHECKOUT
+        </button>
+
+        <div style="margin-top: 20px;">
+            <input type="text" id="discountCode" placeholder="Discount code" style="width: 70%; padding: 12px; border: 2px solid #eee; border-radius: 8px 0 0 8px;">
+            <button class="btn" onclick="applyDiscount()" style="width: 30%; border-radius: 0 8px 8px 0;">APPLY</button>
+        </div>
+    </div>
+    <!-- PRODUCT MANAGEMENT MODAL -->
+<div class="product-modal" id="productModal" style="display: none;">
+    <div style="background: white; padding: 30px; border-radius: 15px; max-width: 600px; margin: 50px auto;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+            <h3 style="margin: 0; color: #222;">
+                <i class="fas fa-box"></i> Product Management
+            </h3>
+            <button onclick="closeProductModal()" style="background: none; border: none; font-size: 24px; color: #666; cursor: pointer;">×</button>
+        </div>
+        
+        <div style="display: flex; gap: 20px; margin-bottom: 20px;">
+            <button class="btn" onclick="showAddProductForm()" style="flex: 1;">
+                <i class="fas fa-plus"></i> Add New Product
+            </button>
+            <button class="btn btn-secondary" onclick="showProductList()" style="flex: 1;">
+                <i class="fas fa-list"></i> View All Products
+            </button>
+        </div>
+        
+        <!-- ADD PRODUCT FORM -->
+        <div id="addProductForm" style="display: none;">
+            <h4 style="margin-bottom: 20px; color: #333;">Add New Product</h4>
+            
+            <div style="display: grid; gap: 15px;">
+                <input type="text" id="newProductName" placeholder="Product Name" style="padding: 12px; border: 2px solid #ddd; border-radius: 8px;">
+                <input type="number" id="newProductPrice" placeholder="Price ($)" style="padding: 12px; border: 2px solid #ddd; border-radius: 8px;">
+                <input type="text" id="newProductImage" placeholder="Image URL" style="padding: 12px; border: 2px solid #ddd; border-radius: 8px;">
+                <input type="text" id="newProductCategory" placeholder="Category (men/women/unisex)" style="padding: 12px; border: 2px solid #ddd; border-radius: 8px;">
+                <input type="text" id="newProductColor" placeholder="Color" style="padding: 12px; border: 2px solid #ddd; border-radius: 8px;">
+                <input type="text" id="newProductTag" placeholder="Tag (new/sale/leave empty)" style="padding: 12px; border: 2px solid #ddd; border-radius: 8px;">
+                
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn" onclick="addNewProduct()" style="flex: 1;">
+                        <i class="fas fa-save"></i> Save Product
+                    </button>
+                    <button class="btn btn-secondary" onclick="showProductList()" style="flex: 1;">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PRODUCT LIST -->
+        <div id="productList" style="display: none;">
+            <h4 style="margin-bottom: 20px; color: #333;">All Products</h4>
+            <div style="max-height: 400px; overflow-y: auto;" id="productListContainer">
+                <!-- Products will be listed here -->
+            </div>
+            <button class="btn" onclick="showAddProductForm()" style="margin-top: 20px; width: 100%;">
+                <i class="fas fa-plus"></i> Add Another Product
+            </button>
+        </div>
+    </div>
+</div>
+
+    <!-- MAIN WEBSITE CONTENT -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo editable" data-id="logo">HORLAZ<span> CO WEAR</span></a>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search products..." id="searchInput">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="header-icons">
+                <div class="icon-btn" title="Search">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="icon-btn" title="Wishlist">
+                    <i class="far fa-heart"></i>
+                    <span class="badge" id="wishlistCount">0</span>
+                </div>
+                <div class="icon-btn" title="Cart" onclick="openCart()">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge" id="headerCartCount">0</span>
+                </div>
+                <div class="icon-btn" title="Account">
+                    <i class="far fa-user"></i>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>HORLAZ CO WEAR</h1>
-            <p class="hero-subtitle">Where Luxury Meets Fashion Excellence</p>
-            <div class="hero-cta">
-                <a href="#shop" class="cta-btn">Shop Now</a>
-                <button onclick="openModal('loginModal')" class="cta-btn secondary">Login</button>
+    <section class="hero">
+        <div class="container">
+            <h1 class="editable" data-id="hero_title">ELEVATE YOUR STREET STYLE</h1>
+            <p class="editable" data-id="hero_desc">
+                Premium urban fashion crafted with precision. Limited edition collections that define modern streetwear.
+            </p>
+            <div style="display: flex; gap: 20px; justify-content: center; margin-top: 40px;">
+                <a href="#" class="btn editable" data-id="hero_btn1">SHOP MEN</a>
+                <a href="#" class="btn btn-outline editable" data-id="hero_btn2">SHOP WOMEN</a>
             </div>
         </div>
     </section>
 
-    <!-- Flash Sale Banner -->
-    <div class="countdown-timer">
-        🔥 FLASH SALE: 50% OFF SELECTED ITEMS - ENDS IN: <span id="countdown">23:59:59</span>
-    </div>
+    <section class="products-section container">
+        <h2 class="section-title editable" data-id="featured_title">FEATURED COLLECTIONS</h2>
+        
+        <div class="filter-bar">
+            <div class="filter-options">
+                <button class="filter-btn active" onclick="filterProducts('all')">All</button>
+                <button class="filter-btn" onclick="filterProducts('men')">Men</button>
+                <button class="filter-btn" onclick="filterProducts('women')">Women</button>
+                <button class="filter-btn" onclick="filterProducts('new')">New Arrivals</button>
+                <button class="filter-btn" onclick="filterProducts('sale')">On Sale</button>
+            </div>
+            <select style="padding: 10px 20px; border: 2px solid #eee; border-radius: 8px;" onchange="sortProducts(this.value)">
+                <option value="newest">Newest First</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+            </select>
+        </div>
 
-    <!-- Categories Section -->
-    <section class="categories animate-on-scroll" id="shop">
-        <div class="container">
-            <h2 class="section-title">Shop By Categories</h2>
-            <div class="category-grid">
-                <div class="category-card" onclick="filterProducts('clothing')">
-                    <div class="category-image">
-                        <i class="fas fa-tshirt"></i>
-                    </div>
-                    <div class="category-info">
-                        <h3>Premium Clothing</h3>
-                        <p>Shirts, T-shirts, Trousers & More</p>
+        <div class="product-grid" id="productGrid">
+            <!-- Products loaded by JavaScript -->
+        </div>
+    </section>
+
+    <section class="testimonials container">
+        <h2 class="section-title editable" data-id="testimonials_title">WHAT OUR CUSTOMERS SAY</h2>
+        
+        <div class="testimonial-grid">
+            <div class="testimonial-card editable" data-id="testimonial1">
+                <div class="testimonial-text">
+                    "The quality is incredible! Best streetwear I've ever purchased. Shipping was super fast too."
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Marcus Johnson</h4>
+                        <div class="stars">★★★★★</div>
                     </div>
                 </div>
+            </div>
 
-                <div class="category-card" onclick="filterProducts('footwear')">
-                    <div class="category-image">
-                        <i class="fas fa-shoe-prints"></i>
-                    </div>
-                    <div class="category-info">
-                        <h3>Premium Slides</h3>
-                        <p>Luxury Slides & Footwear</p>
+            <div class="testimonial-card editable" data-id="testimonial2">
+                <div class="testimonial-text">
+                    "Love the unique designs! I get compliments every time I wear Horlaz. Worth every penny!"
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" class="author-avatar">
+                    <div class="author-info">
+                        <h4>Sarah Chen</h4>
+                        <div class="stars">★★★★★</div>
                     </div>
                 </div>
+            </div>
 
-                <div class="category-card" onclick="filterProducts('watches')">
-                    <div class="category-image">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="category-info">
-                        <h3>Luxury Watches</h3>
-                        <p>Premium Timepieces</p>
-                    </div>
+            <div class="testimonial-card editable" data-id="testimonial3">
+                <div class="testimonial-text">
+                    "Perfect fit and amazing quality. The hoodie is my new favorite piece. Will definitely order again!"
                 </div>
-
-                <div class="category-card" onclick="filterProducts('accessories')">
-                    <div class="category-image">
-                        <i class="fas fa-cap"></i>
-                    </div>
-                    <div class="category-info">
-                        <h3>Face Caps</h3>
-                        <p>Premium Face Caps & Accessories</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/65.jpg" class="author-avatar">
+                    <div class="author-info">
+                        <h4>David Park</h4>
+                        <div class="stars">★★★★☆</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Products -->
-    <section class="featured-products animate-on-scroll">
-        <div class="container">
-            <h2 class="section-title">Featured Products</h2>
-            
-            <!-- Product Filters -->
-            <div class="product-filters" style="text-align: center; margin-bottom: 2rem;">
-                <button class="filter-btn active" onclick="showAllProducts()">All Products</button>
-                <button class="filter-btn" onclick="filterProducts('clothing')">Clothing</button>
-                <button class="filter-btn" onclick="filterProducts('watches')">Watches</button>
-                <button class="filter-btn" onclick="filterProducts('footwear')">Slides</button>
-                <button class="filter-btn" onclick="filterProducts('accessories')">Face Caps</button>
-            </div>
-
-            <!-- Price Range Filter -->
-            <div class="price-filter" style="text-align: center; margin-bottom: 2rem;">
-                <label style="margin-right: 1rem; color: var(--luxury-black); font-weight: bold;">Price Range:</label>
-                <select id="priceRange" onchange="filterByPrice()" style="padding: 0.5rem; border-radius: 5px; border: 1px solid #ddd;">
-                    <option value="all">All Prices</option>
-                    <option value="0-10000">₦0 - ₦10,000</option>
-                    <option value="10000-20000">₦10,000 - ₦20,000</option>
-                    <option value="20000-50000">₦20,000 - ₦50,000</option>
-                    <option value="50000-100000">₦50,000 - ₦100,000</option>
-                    <option value="100000+">₦100,000+</option>
-                </select>
-                <button class="filter-btn" onclick="sortProducts('low-high')" style="margin-left: 1rem;">Price: Low to High</button>
-                <button class="filter-btn" onclick="sortProducts('high-low')">Price: High to Low</button>
-            </div>
-            
-            <div class="product-grid" id="productGrid">
-                <!-- Products will be dynamically loaded -->
+    <section class="container" style="padding: 80px 0;">
+        <div style="background: linear-gradient(135deg, var(--primary), #a81830); color: white; padding: 60px; border-radius: 30px; text-align: center;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;" class="editable" data-id="newsletter_title">STAY IN THE LOOP</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;" class="editable" data-id="newsletter_desc">
+                Subscribe to get exclusive offers, new product alerts, and style tips.
+            </p>
+            <div style="display: flex; max-width: 500px; margin: 0 auto;">
+                <input type="email" placeholder="Your email address" style="flex: 1; padding: 18px; border: none; border-radius: 10px 0 0 10px; font-size: 16px;">
+                <button class="btn" style="border-radius: 0 10px 10px 0; padding: 18px 30px;">SUBSCRIBE</button>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about-section animate-on-scroll" id="about" style="padding: 5rem 0; background: var(--light-gray);">
+    <footer>
         <div class="container">
-            <h2 class="section-title">About HORLAZ CO WEAR</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-top: 3rem;">
+            <div class="footer-grid">
                 <div>
-                    <h3 style="color: var(--primary-gold); margin-bottom: 1rem; font-size: 1.8rem;">Our Story</h3>
-                    <p style="line-height: 1.8; margin-bottom: 2rem;">
-                        HORLAZ CO WEAR was founded with a vision to provide premium quality men's fashion at affordable prices. 
-                        We specialize in high-quality clothing, luxury watches, premium slides, and stylish face caps that combine 
-                        comfort with contemporary style.
+                    <h3 class="editable" data-id="footer_about_title">HORLAZ CO WEAR</h3>
+                    <p class="editable" data-id="footer_about" style="margin-top: 15px; line-height: 1.6; opacity: 0.8;">
+                        Premium urban fashion brand since 2020. We combine quality craftsmanship with contemporary street style.
                     </p>
-                    <p style="line-height: 1.8;">
-                        Our commitment to excellence and customer satisfaction has made us a trusted name in men's fashion across Nigeria.
-                    </p>
-                </div>
-                <div>
-                    <h3 style="color: var(--primary-gold); margin-bottom: 1rem; font-size: 1.8rem;">Our Mission</h3>
-                    <p style="line-height: 1.8; margin-bottom: 2rem;">
-                        To provide every man with access to premium fashion that enhances confidence and style. We believe that 
-                        quality fashion should be accessible to everyone.
-                    </p>
-                    <h3 style="color: var(--primary-gold); margin-bottom: 1rem; font-size: 1.8rem;">Our Values</h3>
-                    <ul style="line-height: 1.8;">
-                        <li>✓ Premium Quality Materials</li>
-                        <li>✓ Affordable Luxury</li>
-                        <li>✓ Customer Satisfaction</li>
-                        <li>✓ Fast & Reliable Delivery</li>
-                        <li>✓ Authentic Products</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section animate-on-scroll" id="contact" style="padding: 5rem 0; background: var(--pure-white);">
-        <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <p style="text-align: center; margin-bottom: 3rem; color: #666;">Get in touch with us for any inquiries or support</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 4rem;">
-                <!-- Contact Form -->
-                <div>
-                    <h3 style="color: var(--luxury-black); margin-bottom: 2rem;">Send us a Message</h3>
-                    <form id="contactForm" onsubmit="handleContactForm(event)" style="background: var(--light-gray); padding: 2rem; border-radius: 15px;">
-                        <div class="form-group">
-                            <label>Full Name:</label>
-                            <input type="text" id="contactName" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email:</label>
-                            <input type="email" id="contactEmail" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Phone:</label>
-                            <input type="tel" id="contactPhone" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Subject:</label>
-                            <select id="contactSubject" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px; outline: none;">
-                                <option>General Inquiry</option>
-                                <option>Order Support</option>
-                                <option>Product Question</option>
-                                <option>Returns/Exchange</option>
-                                <option>Styling Services</option>
-                                <option>VIP Membership</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Message:</label>
-                            <textarea id="contactMessage" rows="5" style="width: 100%; padding: 0.8rem; border: 1px solid #ddd; border-radius: 8px; outline: none; resize: vertical;" required></textarea>
-                        </div>
-                        <button type="submit" class="form-btn">Send Message</button>
-                    </form>
-                </div>
-
-                <!-- Contact Information -->
-                <div>
-                    <h3 style="color: var(--luxury-black); margin-bottom: 2rem;">Get in Touch</h3>
-                    
-                    <div style="margin-bottom: 2rem;">
-                        <div style="display: flex; align-items: center; margin-bottom: 1rem; background: var(--light-gray); padding: 1rem; border-radius: 10px;">
-                            <i class="fas fa-phone" style="color: var(--primary-gold); font-size: 1.5rem; margin-right: 1rem;"></i>
-                            <div>
-                                <strong>Phone:</strong><br>
-                                <a href="tel:+2349154667099" style="color: var(--luxury-black); text-decoration: none;">+234 915 466 7099</a>
-                            </div>
-                        </div>
-
-                        <div style="display: flex; align-items: center; margin-bottom: 1rem; background: var(--light-gray); padding: 1rem; border-radius: 10px;">
-                            <i class="fab fa-whatsapp" style="color: var(--primary-gold); font-size: 1.5rem; margin-right: 1rem;"></i>
-                            <div>
-                                <strong>WhatsApp:</strong><br>
-                                <a href="https://wa.me/2349154667099" style="color: var(--luxury-black); text-decoration: none;">+234 915 466 7099</a>
-                            </div>
-                        </div>
-
-                        <div style="display: flex; align-items: center; margin-bottom: 2rem; background: var(--light-gray); padding: 1rem; border-radius: 10px;">
-                            <i class="fas fa-envelope" style="color: var(--primary-gold); font-size: 1.5rem; margin-right: 1rem;"></i>
-                            <div>
-                                <strong>Email:</strong><br>
-                                <a href="mailto:Horlazbrandwearcollection@gmail.com" style="color: var(--luxury-black); text-decoration: none;">Horlazbrandwearcollection@gmail.com</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div style="margin-bottom: 2rem;">
-                        <h4 style="color: var(--primary-gold); margin-bottom: 1rem;">Business Hours</h4>
-                        <p style="line-height: 1.6;">
-                            Monday - Friday: 9:00 AM - 8:00 PM<br>
-                            Saturday: 10:00 AM - 6:00 PM<br>
-                            Sunday: 12:00 PM - 5:00 PM
-                        </p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
+
+                <div>
+                    <h3 class="editable" data-id="footer_shop_title">SHOP</h3>
+                    <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+                        <a href="#" class="editable" data-id="footer_link1" style="color: white; text-decoration: none; opacity: 0.8;">All Products</a>
+                        <a href="#" class="editable" data-id="footer_link2" style="color: white; text-decoration: none; opacity: 0.8;">New Arrivals</a>
+                        <a href="#" class="editable" data-id="footer_link3" style="color: white; text-decoration: none; opacity: 0.8;">Men's Collection</a>
+                        <a href="#" class="editable" data-id="footer_link4" style="color: white; text-decoration: none; opacity: 0.8;">Women's Collection</a>
+                        <a href="#" class="editable" data-id="footer_link5" style="color: white; text-decoration: none; opacity: 0.8;">Sale</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="editable" data-id="footer_help_title">HELP & SUPPORT</h3>
+                    <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+                        <a href="#" class="editable" data-id="footer_help1" style="color: white; text-decoration: none; opacity: 0.8;">Contact Us</a>
+                        <a href="#" class="editable" data-id="footer_help2" style="color: white; text-decoration: none; opacity: 0.8;">Shipping Info</a>
+                        <a href="#" class="editable" data-id="footer_help3" style="color: white; text-decoration: none; opacity: 0.8;">Returns & Exchanges</a>
+                        <a href="#" class="editable" data-id="footer_help4" style="color: white; text-decoration: none; opacity: 0.8;">Size Guide</a>
+                        <a href="#" class="editable" data-id="footer_help5" style="color: white; text-decoration: none; opacity: 0.8;">FAQs</a>
+                    </div>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h3 class="editable" data-id="footer_news_title">NEWSLETTER</h3>
+                    <p class="editable" data-id="footer_news_desc" style="margin-top: 15px; opacity: 0.8;">
+                        Get 15% off your first order when you subscribe!
+                    </p>
+                    <input type="email" placeholder="Email address">
+                    <button class="btn" style="width: 100%;">SUBSCRIBE</button>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer style="background: var(--luxury-black); color: var(--pure-white); padding: 3rem 0 1rem;">
-        <div class="container">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 2rem;">
-                <div>
-                    <h3 style="color: var(--primary-gold); margin-bottom: 1rem;">HORLAZ CO WEAR</h3>
-                    <p>Premium fashion store offering luxury clothing, accessories, and personalized styling services.</p>
-                </div>
-
-                <div>
-                    <h3 style="color: var(--primary-gold); margin-bottom: 1rem;">Quick Links</h3>
-                    <ul style="list-style: none;">
-                        <li style="margin-bottom: 0.5rem;"><a href="#about" style="color: var(--pure-white); text-decoration: none;">About Us</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="#shop" style="color: var(--pure-white); text-decoration: none;">Shop</a></li>
-                        <li style="margin-bottom: 0.5rem;"><a href="#contact" style="color: var(--pure-white); text-decoration: none;">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 style="color: var(--primary-gold); margin-bottom: 1rem;">Contact Info</h3>
-                    <p><i class="fas fa-phone"></i> +234 915 466 7099</p>
-                    <p><i class="fas fa-envelope"></i> Horlazbrandwearcollection@gmail.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</p>
-                </div>
-            </div>
-
-            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid var(--dark-gray); color: #999;">
-                <p>&copy; 2025 HORLAZ CO WEAR. All rights reserved. | Premium Fashion Store</p>
+            <div class="copyright">
+                <p class="editable" data-id="copyright">
+                    &copy; 2024 HORLAZ CO WEAR. All rights reserved. | 
+                    <a href="#" style="color: inherit;">Privacy Policy</a> | 
+                    <a href="#" style="color: inherit;">Terms of Service</a>
+                </p>
             </div>
         </div>
     </footer>
 
-    <!-- Floating Cart Button -->
-    <button class="floating-cart" onclick="openCart()">
-        <i class="fas fa-shopping-cart"></i>
-        <span class="cart-count" id="cartCount">0</span>
-    </button>
-
-    <!-- Login Modal -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content">
-            <button class="close-modal" onclick="closeModal('loginModal')">&times;</button>
-            <h2 style="text-align: center; margin-bottom: 2rem; color: var(--luxury-black);">Login to Your Account</h2>
-            <form onsubmit="handleLogin(event)">
-                <div class="form-group">
-                    <label>Email/Phone:</label>
-                    <input type="text" id="loginEmail" required>
-                </div>
-                <div class="form-group">
-                    <label>Password:</label>
-                    <input type="password" id="loginPassword" required>
-                </div>
-                <button type="submit" class="form-btn">Login</button>
-                <p style="text-align: center; margin-top: 1rem;">
-                    Don't have an account? 
-                    <a href="#" onclick="switchModal('loginModal', 'signupModal')" style="color: var(--primary-gold);">Sign Up</a>
-                </p>
-            </form>
-        </div>
-    </div>
-
-    <!-- Signup Modal -->
-    <div class="modal" id="signupModal">
-        <div class="modal-content">
-            <button class="close-modal" onclick="closeModal('signupModal')">&times;</button>
-            <h2 style="text-align: center; margin-bottom: 2rem; color: var(--luxury-black);">Create Your Account</h2>
-            <form onsubmit="handleSignup(event)">
-                <div class="form-group">
-                    <label>Full Name:</label>
-                    <input type="text" id="signupName" required>
-                </div>
-                <div class="form-group">
-                    <label>Email:</label>
-                    <input type="email" id="signupEmail" required>
-                </div>
-                <div class="form-group">
-                    <label>Phone:</label>
-                    <input type="tel" id="signupPhone" required>
-                </div>
-                <div class="form-group">
-                    <label>Password:</label>
-                    <input type="password" id="signupPassword" required>
-                </div>
-                <button type="submit" class="form-btn">Create Account</button>
-                <p style="text-align: center; margin-top: 1rem;">
-                    Already have an account? 
-                    <a href="#" onclick="switchModal('signupModal', 'loginModal')" style="color: var(--primary-gold);">Login</a>
-                </p>
-            </form>
-        </div>
-    </div>
-
-    <!-- OTP Verification Modal -->
-    <div class="modal" id="otpModal">
-        <div class="modal-content">
-            <button class="close-modal" onclick="closeModal('otpModal')">&times;</button>
-            <h2 style="text-align: center; margin-bottom: 2rem; color: var(--luxury-black);">Verify Your Account</h2>
-            <p style="text-align: center; margin-bottom: 2rem;">Enter the 6-digit code sent to your email/phone</p>
-            <form onsubmit="handleOTPVerification(event)">
-                <div class="form-group">
-                    <label>Verification Code:</label>
-                    <input type="text" id="otpCode" maxlength="6" required style="text-align: center; font-size: 1.5rem; letter-spacing: 0.5rem;">
-                </div>
-                <button type="submit" class="form-btn">Verify Account</button>
-                <p style="text-align: center; margin-top: 1rem;">
-                    Didn't receive code? 
-                    <a href="#" onclick="resendOTP()" style="color: var(--primary-gold);">Resend</a>
-                </p>
-            </form>
-        </div>
-    </div>
-
-    <!-- Owner Login Modal -->
-    <div class="modal" id="ownerLoginModal">
-        <div class="modal-content">
-            <button class="close-modal" onclick="closeModal('ownerLoginModal')">&times;</button>
-            <h2 style="text-align: center; margin-bottom: 2rem; color: var(--luxury-black);">
-                <i class="fas fa-shield-alt" style="color: var(--primary-gold);"></i> Owner Access Required
-            </h2>
-            <p style="text-align: center; color: #666; margin-bottom: 2rem;">
-                Admin panel access is restricted to the website owner only
-            </p>
-            <form onsubmit="handleOwnerLogin(event)">
-                <div class="form-group">
-                    <label>Owner Password:</label>
-                    <input type="password" id="ownerPassword" required placeholder="Enter your admin password">
-                </div>
-                <button type="submit" class="form-btn">Access Admin Panel</button>
-                <p style="text-align: center; margin-top: 1rem; color: #666; font-size: 0.9rem;">
-                    <i class="fas fa-lock"></i> Secure authentication required
-                </p>
-            </form>
-        </div>
-    </div>
-
-    <!-- Cart Modal -->
-    <div class="modal" id="cartModal">
-        <div class="modal-content" style="max-width: 900px;">
-            <button class="close-modal" onclick="closeModal('cartModal')">&times;</button>
-            <h2 style="text-align: center; margin-bottom: 2rem; color: var(--luxury-black);">Your Shopping Cart</h2>
-            <div id="cartItems">
-                <p style="text-align: center; color: #666;">Your cart is empty</p>
-            </div>
-            <div id="cartSummary" style="background: var(--light-gray); padding: 1.5rem; border-radius: 10px; margin-top: 2rem;">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                    <span>Subtotal:</span>
-                    <span id="cartSubtotal">₦0.00</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                    <span>Delivery:</span>
-                    <span id="deliveryFee">₦2,000</span>
-                </div>
-                <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 1.2rem; border-top: 1px solid #ddd; padding-top: 0.5rem;">
-                    <span>Total:</span>
-                    <span id="cartTotal">₦0.00</span>
-                </div>
-            </div>
-            
-            <div class="payment-section">
-                <h3 style="color: var(--luxury-black); margin-bottom: 1rem; text-align: center;">Choose Payment Method</h3>
-                <div class="payment-methods">
-                    <div class="payment-method selected" onclick="selectPaymentMethod('whatsapp')">
-                        <i class="fab fa-whatsapp" style="font-size: 2rem; color: #25D366; margin-bottom: 0.5rem;"></i>
-                        <h4>WhatsApp Order</h4>
-                        <p>Send order via WhatsApp</p>
-                    </div>
-                    <div class="payment-method" onclick="selectPaymentMethod('paystack')">
-                        <i class="fas fa-credit-card" style="font-size: 2rem; color: var(--primary-gold); margin-bottom: 0.5rem;"></i>
-                        <h4>Card Payment</h4>
-                        <p>Pay with Debit/Credit Card</p>
-                    </div>
-                    <div class="payment-method" onclick="selectPaymentMethod('transfer')">
-                        <i class="fas fa-university" style="font-size: 2rem; color: var(--luxury-black); margin-bottom: 0.5rem;"></i>
-                        <h4>Bank Transfer</h4>
-                        <p>Direct bank transfer</p>
-                    </div>
-                    <div class="payment-method" onclick="selectPaymentMethod('flutterwave')">
-                        <i class="fas fa-money-check-alt" style="font-size: 2rem; color: #f5a623; margin-bottom: 0.5rem;"></i>
-                        <h4>Flutterwave</h4>
-                        <p>Multiple payment options</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 2rem;">
-                <button class="whatsapp-order" onclick="sendWhatsAppOrder()" style="margin-right: 1rem;">
-                    <i class="fab fa-whatsapp"></i> Order via WhatsApp
-                </button>
-                <button class="form-btn" onclick="proceedToPayment()" style="margin-right: 1rem;">Pay Now</button>
-                <button class="cta-btn secondary" onclick="continueShopping()">Continue Shopping</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bank Transfer Modal -->
-    <div class="modal" id="bankTransferModal">
-        <div class="modal-content">
-            <button class="close-modal" onclick="closeModal('bankTransferModal')">&times;</button>
-            <h2 style="text-align: center; margin-bottom: 2rem; color: var(--luxury-black);">Bank Transfer Details</h2>
-            <div style="background: var(--light-gray); padding: 2rem; border-radius: 10px; text-align: center;">
-                <h3 style="color: var(--primary-gold); margin-bottom: 1rem;">Transfer to:</h3>
-                <div style="margin-bottom: 1rem;">
-                    <strong>Bank Name:</strong> First Bank Nigeria<br>
-                    <strong>Account Name:</strong> HORLAZ CO WEAR<br>
-                    <strong>Account Number:</strong> 1234567890<br>
-                    <strong>Amount:</strong> <span id="transferAmount">₦0.00</span>
-                </div>
-                <p style="color: #666; margin-bottom: 1rem;">
-                    Please use your order reference as description: <strong id="orderReference"></strong>
-                </p>
-                <button class="form-btn" onclick="confirmTransfer()">I have completed the transfer</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Notification -->
-    <div class="notification" id="notification">
-        <span id="notificationMessage"></span>
-        <button onclick="closeNotification()" style="background: none; border: none; color: inherit; margin-left: 1rem;">&times;</button>
-    </div>
-
     <script>
-        // Global Variables
+        // ======================
+        // GLOBAL VARIABLES
+        // ======================
+        const ADMIN_PASSWORD = "horlaz2024";
+        let isEditMode = false;
         let cart = [];
-        let user = null;
-        let selectedPaymentMethod = 'whatsapp';
-        let orderCounter = 1001;
-        let isOwnerLoggedIn = false;
+        let wishlist = [];
+        let selectedPayment = 'card';
+        let currentDiscount = 0;
+        const DISCOUNT_CODES = {
+            "WELCOME10": 10,
+            "HORLAZ20": 20,
+            "SAVE15": 15
+        };
 
-        // CHANGE THIS PASSWORD TO YOUR DESIRED ADMIN PASSWORD
-        const OWNER_PASSWORD = "HorlazAdmin123!"; // Change this to your secure password
-
+        // Products Database
         let products = [
-            {id: 1, name: "Premium Cotton Shirt", price: 15000, category: "clothing", image: "", description: "High-quality cotton shirt with premium finish", stock: 25, featured: true},
-            {id: 2, name: "Classic Polo Shirt", price: 12000, category: "clothing", image: "", description: "Comfortable classic polo shirt", stock: 30, featured: false},
-            {id: 3, name: "Luxury Face Cap", price: 8000, category: "accessories", image: "", description: "Premium branded face cap", stock: 50, featured: true},
-            {id: 4, name: "Premium Slides", price: 18000, category: "footwear", image: "", description: "Comfortable premium slides", stock: 20, featured: true},
-            {id: 5, name: "Gold Watch", price: 85000, category: "watches", image: "", description: "Luxury gold-plated watch", stock: 5, featured: true},
-            {id: 6, name: "Designer T-Shirt", price: 10000, category: "clothing", image: "", description: "Trendy designer t-shirt", stock: 40, featured: false},
-            {id: 7, name: "Casual Trousers", price: 22000, category: "clothing", image: "", description: "Comfortable casual trousers", stock: 15, featured: false},
-            {id: 8, name: "Sport Slides", price: 15000, category: "footwear", image: "", description: "Athletic premium slides", stock: 25, featured: false},
-            {id: 9, name: "Silver Watch", price: 45000, category: "watches", image: "", description: "Elegant silver watch", stock: 8, featured: true},
-            {id: 10, name: "Vintage Face Cap", price: 6000, category: "accessories", image: "", description: "Retro style face cap", stock: 35, featured: false}
+            { id: 1, name: "Urban Hoodie Pro", price: 89.99, category: "men", tag: "new", image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", color: "Black" },
+            { id: 2, name: "Street Joggers", price: 74.99, category: "men", tag: "", image: "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", color: "Gray" },
+            { id: 3, name: "Graphic Tee - Limited", price: 39.99, category: "unisex", tag: "sale", oldPrice: 49.99, image: "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", color: "White" },
+            { id: 4, name: "Cargo Pants", price: 79.99, category: "men", tag: "", image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", color: "Green" },
+            { id: 5, name: "Windbreaker Jacket", price: 119.99, category: "women", tag: "new", image: "https://images.unsplash.com/photo-1591047592183-aac2a5d5e6f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", color: "Red" },
+            { id: 6, name: "Baseball Cap", price: 34.99, category: "unisex", tag: "", image: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", color: "Black" },
+            { id: 7, name: "Oversized T-Shirt", price: 44.99, category: "women", tag: "sale", oldPrice: 59.99, image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", color: "Beige" },
+            { id: 8, name: "Premium Denim Jacket", price: 129.99, category: "unisex", tag: "new", image: "https://images.unsplash.com/photo-1591047592183-aac2a5d5e6f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80", color: "Blue" }
         ];
 
-        // Initialize Website
-        document.addEventListener('DOMContentLoaded', function() {
-            loadProducts();
-            setupAnimations();
-            startCountdown();
-            updateAdminProductList();
-            
-            // Simulate recent purchase notifications
-            setTimeout(showPurchaseNotification, 3000);
-            setInterval(showPurchaseNotification, 15000);
-        });
-
-        // SECURE ADMIN FUNCTIONS
-        function toggleAdminPanel() {
-            if (!isOwnerLoggedIn) {
-                openModal('ownerLoginModal');
-                return;
-            }
-            
-            const adminPanel = document.getElementById('adminPanel');
-            adminPanel.classList.toggle('active');
-        }
-
-        function handleOwnerLogin(event) {
-            event.preventDefault();
-            const password = document.getElementById('ownerPassword').value;
-            
-            if (password === OWNER_PASSWORD) {
-                isOwnerLoggedIn = true;
-                closeModal('ownerLoginModal');
-                showNotification('Admin access granted! Welcome back, Owner.', 'success');
-                
-                // Open admin panel
-                setTimeout(() => {
-                    const adminPanel = document.getElementById('adminPanel');
-                    adminPanel.classList.add('active');
-                }, 500);
-                
-                sendAdminNotification('owner_login', {timestamp: new Date().toISOString()});
+        // ======================
+        // ADMIN SYSTEM
+        // ======================
+        function loginAdmin() {
+            const password = document.getElementById('adminPassword').value;
+            if (password === ADMIN_PASSWORD) {
+                adminPanel.style.display = 'none';
+                enterEditMode();
+                showNotification("Admin access granted!", "success");
             } else {
-                showNotification('Invalid password! Access denied.', 'error');
-                document.getElementById('ownerPassword').value = '';
-                sendAdminNotification('failed_login', {timestamp: new Date().toISOString()});
+                showNotification("Incorrect password!", "error");
             }
         }
 
-        function closeAdminPanel() {
-            const adminPanel = document.getElementById('adminPanel');
-            adminPanel.classList.remove('active');
+        function enterEditMode() {
+            isEditMode = true;
+            document.body.classList.add('edit-mode');
+            editToolbar.style.display = 'flex';
+            
+            document.querySelectorAll('.editable').forEach(el => {
+                el.contentEditable = true;
+                el.addEventListener('blur', () => autoSaveElement(el));
+            });
+            
+            document.querySelectorAll('.editable-image').forEach(img => {
+                img.addEventListener('click', function() {
+                    if(isEditMode) {
+                        const newUrl = prompt("Enter new image URL:", this.src);
+                        if(newUrl) {
+                            this.src = newUrl;
+                            this.dataset.original = newUrl;
+                            autoSaveElement(this);
+                        }
+                    }
+                });
+            });
         }
 
-        function previewImage(input) {
-            const preview = document.getElementById('imagePreview');
-            const file = input.files[0];
-            
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    preview.src = e.target.result;
-                    preview.style.display = 'block';
-                };
-                reader.readAsDataURL(file);
+        function exitEditMode() {
+            if (confirm("Exit edit mode? Unsaved changes will be lost.")) {
+                isEditMode = false;
+                document.body.classList.remove('edit-mode');
+                editToolbar.style.display = 'none';
+                
+                document.querySelectorAll('.editable').forEach(el => {
+                    el.contentEditable = false;
+                });
             }
         }
 
-        function addProduct(event) {
-            event.preventDefault();
-            
-            if (!isOwnerLoggedIn) {
-                showNotification('Access denied! Please login as owner first.', 'error');
-                return;
-            }
-            
-            const newProduct = {
-                id: Date.now(),
-                name: document.getElementById('adminProductName').value,
-                price: parseInt(document.getElementById('adminProductPrice').value),
-                category: document.getElementById('adminProductCategory').value,
-                description: document.getElementById('adminProductDescription').value,
-                stock: parseInt(document.getElementById('adminProductStock').value),
-                featured: document.getElementById('adminProductFeatured').checked,
-                image: document.getElementById('imagePreview').src || ""
-            };
-            
-            products.push(newProduct);
-            loadProducts();
-            updateAdminProductList();
-            
-            // Reset form
-            document.querySelector('.product-form').reset();
-            document.getElementById('imagePreview').style.display = 'none';
-            
-            showNotification('Product added successfully!', 'success');
-            sendAdminNotification('new_product_added', newProduct);
+        function autoSaveElement(element) {
+            const id = element.dataset.id;
+            const content = element.innerHTML || element.src;
+            localStorage.setItem(`horlaz_${id}`, content);
         }
 
-        function updateAdminProductList() {
-            const adminList = document.getElementById('adminProductList');
-            adminList.innerHTML = '';
+        function saveAllEdits() {
+            document.querySelectorAll('.editable').forEach(autoSaveElement);
+            localStorage.setItem('horlaz_products', JSON.stringify(products));
+            showNotification("All changes saved successfully!", "success");
+        }
+
+        function loadSavedContent() {
+            document.querySelectorAll('.editable').forEach(el => {
+                const saved = localStorage.getItem(`horlaz_${el.dataset.id}`);
+                if(saved) el.innerHTML = saved;
+            });
             
-            products.forEach(product => {
-                const productItem = document.createElement('div');
-                productItem.style.cssText = 'background: var(--dark-gray); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;';
-                productItem.innerHTML = `
-                    <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <div>
-                            <h5 style="color: var(--primary-gold);">${product.name}</h5>
-                            <p style="color: #ccc; font-size: 0.9rem;">₦${product.price.toLocaleString()} | Stock: ${product.stock}</p>
+            const savedProducts = localStorage.getItem('horlaz_products');
+            if(savedProducts) products = JSON.parse(savedProducts);
+            
+            const savedCart = localStorage.getItem('horlaz_cart');
+            if(savedCart) cart = JSON.parse(savedCart);
+            
+            updateCartCount();
+            renderProducts();
+        }
+
+        function openAdminDashboard() {
+            const html = `
+                <div style="padding: 30px; background: white; border-radius: 15px; max-width: 800px; margin: 20px auto;">
+                    <h2><i class="fas fa-tachometer-alt"></i> Advanced Admin Dashboard</h2>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 30px;">
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                            <h3><i class="fas fa-box"></i> Product Management</h3>
+                            <button class="btn" onclick="addNewProduct()" style="width: 100%; margin-top: 10px;">Add New Product</button>
+                            <button class="btn" onclick="manageProducts()" style="width: 100%; margin-top: 10px;">Manage Products</button>
                         </div>
-                        <div>
-                            <button onclick="deleteProduct(${product.id})" style="background: red; color: white; border: none; padding: 0.3rem 0.8rem; border-radius: 5px; cursor: pointer;">Delete</button>
+                        
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                            <h3><i class="fas fa-shopping-cart"></i> Orders</h3>
+                            <p>Total Orders: <strong>${cart.length}</strong></p>
+                            <button class="btn" onclick="viewOrders()" style="width: 100%; margin-top: 10px;">View All Orders</button>
+                        </div>
+                        
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                            <h3><i class="fas fa-image"></i> Media Library</h3>
+                            <button class="btn" onclick="uploadImage()" style="width: 100%; margin-top: 10px;">Upload Image</button>
+                        </div>
+                        
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                            <h3><i class="fas fa-cog"></i> Settings</h3>
+                            <button class="btn" onclick="changePassword()" style="width: 100%; margin-top: 10px;">Change Password</button>
+                            <button class="btn" onclick="exportData()" style="width: 100%; margin-top: 10px;">Export Data</button>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px; text-align: center;">
+                        <button class="btn btn-secondary" onclick="this.parentElement.parentElement.remove()">Close Dashboard</button>
+                    </div>
+                </div>
+            `;
+            
+            const div = document.createElement('div');
+            div.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:10001;overflow-y:auto;';
+            div.innerHTML = html;
+            document.body.appendChild(div);
+        }
+
+        // ======================
+        // E-COMMERCE FUNCTIONS
+        // ======================
+        function renderProducts(filter = 'all') {
+            const grid = document.getElementById('productGrid');
+            grid.innerHTML = '';
+            
+            let filtered = products;
+            if(filter !== 'all') {
+                filtered = products.filter(p => p.category === filter || p.tag === filter);
+            }
+            
+            filtered.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    ${product.tag ? `<div class="product-badge">${product.tag.toUpperCase()}</div>` : ''}
+                    <img src="${product.image}" class="product-img editable-image" data-id="product_img_${product.id}">
+                    <div class="product-info">
+                        <div class="product-title">
+                            <span class="editable" data-id="product_title_${product.id}">${product.name}</span>
+                            <button class="wishlist-btn ${wishlist.includes(product.id) ? 'active' : ''}" 
+                                    onclick="toggleWishlist(${product.id})">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                        <p class="product-price editable" data-id="product_price_${product.id}">
+                            $${product.price.toFixed(2)}
+                            ${product.oldPrice ? `<span class="old-price">$${product.oldPrice.toFixed(2)}</span>` : ''}
+                        </p>
+                        <p style="color: var(--gray); margin-bottom: 15px; font-size: 14px;">Color: ${product.color}</p>
+                        <div class="product-actions">
+                            <button class="btn" onclick="addToCart(${product.id})">
+                                <i class="fas fa-shopping-cart"></i> Add to Cart
+                            </button>
+                            <button class="btn btn-outline" onclick="quickView(${product.id})">
+                                Quick View
+                            </button>
                         </div>
                     </div>
                 `;
-                adminList.appendChild(productItem);
+                grid.appendChild(card);
             });
         }
 
-        function deleteProduct(productId) {
-            if (!isOwnerLoggedIn) {
-                showNotification('Access denied! Please login as owner first.', 'error');
-                return;
-            }
-            
-            if (confirm('Are you sure you want to delete this product?')) {
-                const productToDelete = products.find(p => p.id === productId);
-                products = products.filter(p => p.id !== productId);
-                loadProducts();
-                updateAdminProductList();
-                showNotification('Product deleted successfully!', 'success');
-                sendAdminNotification('product_deleted', productToDelete);
-            }
-        }
-
-        function exportProducts() {
-            if (!isOwnerLoggedIn) {
-                showNotification('Access denied! Please login as owner first.', 'error');
-                return;
-            }
-            
-            const dataStr = JSON.stringify(products, null, 2);
-            const dataBlob = new Blob([dataStr], {type: 'application/json'});
-            const url = URL.createObjectURL(dataBlob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = 'horlaz_products.json';
-            link.click();
-            showNotification('Products exported successfully!', 'success');
-        }
-
-        function viewOrders() {
-            if (!isOwnerLoggedIn) {
-                showNotification('Access denied! Please login as owner first.', 'error');
-                return;
-            }
-            showNotification('Order management feature coming soon!', 'info');
-        }
-
-        function viewCustomers() {
-            if (!isOwnerLoggedIn) {
-                showNotification('Access denied! Please login as owner first.', 'error');
-                return;
-            }
-            showNotification('Customer management feature coming soon!', 'info');
-        }
-
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const navMenu = document.getElementById('navMenu');
-            navMenu.classList.toggle('active');
-        }
-
-        // Modal Functions
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'flex';
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-
-        function switchModal(currentModal, newModal) {
-            closeModal(currentModal);
-            openModal(newModal);
-        }
-
-        // Authentication Functions
-        function handleLogin(event) {
-            event.preventDefault();
-            const email = document.getElementById('loginEmail').value;
-            
-            showNotification('Sending OTP for verification...', 'info');
-            
-            setTimeout(() => {
-                closeModal('loginModal');
-                openModal('otpModal');
-                showNotification('OTP sent to your email/phone!', 'success');
-                sendAdminNotification('login_attempt', {email: email});
-            }, 1500);
-        }
-
-        function handleSignup(event) {
-            event.preventDefault();
-            const name = document.getElementById('signupName').value;
-            const email = document.getElementById('signupEmail').value;
-            const phone = document.getElementById('signupPhone').value;
-            
-            showNotification('Creating your account...', 'info');
-            
-            setTimeout(() => {
-                closeModal('signupModal');
-                openModal('otpModal');
-                showNotification('Verification code sent!', 'success');
-                sendAdminNotification('new_signup', {name: name, email: email, phone: phone});
-            }, 1500);
-        }
-
-        function handleOTPVerification(event) {
-            event.preventDefault();
-            const otpCode = document.getElementById('otpCode').value;
-            
-            if (otpCode.length === 6) {
-                showNotification('Verifying...', 'info');
-                
-                setTimeout(() => {
-                    user = {name: 'Valued Customer', email: 'customer@example.com'};
-                    closeModal('otpModal');
-                    showNotification('Account verified successfully! Welcome to HORLAZ CO WEAR!', 'success');
-                }, 1500);
-            } else {
-                showNotification('Please enter a valid 6-digit code', 'error');
-            }
-        }
-
-        function resendOTP() {
-            showNotification('New verification code sent!', 'success');
-        }
-
-        // Product Functions
-        function loadProducts() {
-            const productGrid = document.getElementById('productGrid');
-            productGrid.innerHTML = '';
-            
-            products.forEach(product => {
-                const productCard = createProductCard(product);
-                productGrid.appendChild(productCard);
-            });
-        }
-
-        function createProductCard(product) {
-            const card = document.createElement('div');
-            card.className = 'product-card';
-            
-            const badge = product.featured ? 'FEATURED' : (product.stock < 10 ? 'LIMITED' : 'NEW');
-            const badgeClass = product.stock < 10 ? 'sale-badge' : '';
-            
-            card.innerHTML = `
-                <div class="product-badge ${badgeClass}">${badge}</div>
-                <div class="product-image">
-                    ${product.image ? 
-                        `<img src="${product.image}" alt="${product.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                         <div class="placeholder-icon" style="display: none;"><i class="fas fa-image"></i></div>` :
-                        `<div class="placeholder-icon"><i class="fas fa-image"></i></div>`
-                    }
-                </div>
-                <div class="product-info">
-                    <div class="product-name">${product.name}</div>
-                    <div class="product-description">${product.description}</div>
-                    <div class="product-price">₦${product.price.toLocaleString()}</div>
-                    <div class="product-stock">Stock: ${product.stock} available</div>
-                    <button class="add-to-cart" onclick="addToCart(${product.id})" ${product.stock === 0 ? 'disabled' : ''}>
-                        ${product.stock === 0 ? 'Out of Stock' : 'Add to Cart'}
-                    </button>
-                </div>
-            `;
-            return card;
-        }
-
-        function showAllProducts() {
-            updateFilterButtons('all');
-            loadProducts();
-        }
-
-        function filterProducts(category) {
-            updateFilterButtons(category);
-            const filteredProducts = products.filter(p => p.category === category);
-            displayProducts(filteredProducts);
-        }
-
-        function filterByPrice() {
-            const priceRange = document.getElementById('priceRange').value;
-            let filteredProducts = [...products];
-            
-            if (priceRange !== 'all') {
-                if (priceRange === '100000+') {
-                    filteredProducts = products.filter(p => p.price >= 100000);
-                } else {
-                    const [min, max] = priceRange.split('-').map(Number);
-                    filteredProducts = products.filter(p => p.price >= min && p.price <= max);
-                }
-            }
-            
-            displayProducts(filteredProducts);
-        }
-
-        function sortProducts(order) {
-            let sortedProducts = [...products];
-            
-            if (order === 'low-high') {
-                sortedProducts.sort((a, b) => a.price - b.price);
-            } else if (order === 'high-low') {
-                sortedProducts.sort((a, b) => b.price - a.price);
-            }
-            
-            displayProducts(sortedProducts);
-        }
-
-        function displayProducts(productsToShow) {
-            const productGrid = document.getElementById('productGrid');
-            productGrid.innerHTML = '';
-            
-            if (productsToShow.length === 0) {
-                productGrid.innerHTML = '<p style="text-align: center; grid-column: 1/-1; color: #666;">No products found in this price range.</p>';
-                return;
-            }
-            
-            productsToShow.forEach(product => {
-                const productCard = createProductCard(product);
-                productGrid.appendChild(productCard);
-            });
-        }
-
-        function updateFilterButtons(activeCategory) {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            filterButtons.forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            if (event && event.target) {
-                event.target.classList.add('active');
-            }
-        }
-
-        // Cart Functions
         function addToCart(productId) {
             const product = products.find(p => p.id === productId);
-            if (product && product.stock > 0) {
-                const existingItem = cart.find(item => item.id === productId);
-                
-                if (existingItem) {
-                    if (existingItem.quantity < product.stock) {
-                        existingItem.quantity += 1;
-                    } else {
-                        showNotification('Maximum available quantity reached!', 'error');
-                        return;
-                    }
-                } else {
-                    cart.push({...product, quantity: 1});
-                }
-                
-                updateCartCount();
-                showNotification(`${product.name} added to cart!`, 'success');
-                sendAdminNotification('item_added_to_cart', product);
+            const existing = cart.find(item => item.id === productId);
+            
+            if(existing) {
+                existing.quantity++;
+            } else {
+                cart.push({...product, quantity: 1});
             }
+            
+            updateCartCount();
+            updateCartModal();
+            showNotification(`${product.name} added to cart!`, "success");
+            localStorage.setItem('horlaz_cart', JSON.stringify(cart));
         }
 
         function updateCartCount() {
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            document.getElementById('cartCount').textContent = totalItems;
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = count;
+            document.getElementById('headerCartCount').textContent = count;
         }
 
-        function updateCartQuantity(productId, change) {
-            const item = cart.find(item => item.id === productId);
-            const product = products.find(p => p.id === productId);
+        function openCart() {
+            document.getElementById('cartModal').classList.add('active');
+            document.getElementById('cartOverlay').classList.add('active');
+            updateCartModal();
+        }
+
+        function closeCart() {
+            document.getElementById('cartModal').classList.remove('active');
+            document.getElementById('cartOverlay').classList.remove('active');
+        }
+
+        function updateCartModal() {
+            const container = document.getElementById('cartItems');
+            container.innerHTML = '';
             
-            if (item && product) {
-                const newQuantity = item.quantity + change;
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
                 
-                if (newQuantity <= 0) {
-                    removeFromCart(productId);
-                } else if (newQuantity <= product.stock) {
-                    item.quantity = newQuantity;
-                    updateCartCount();
-                    openCart();
-                } else {
-                    showNotification('Maximum available quantity reached!', 'error');
+                const div = document.createElement('div');
+                div.className = 'cart-item';
+                div.innerHTML = `
+                    <img src="${item.image}" class="cart-item-img">
+                    <div class="cart-item-details">
+                        <div class="cart-item-title">${item.name}</div>
+                        <div class="cart-item-price">$${item.price.toFixed(2)} × ${item.quantity}</div>
+                        <div class="cart-item-actions">
+                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+                            <span style="padding: 0 15px;">${item.quantity}</span>
+                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+                            <button onclick="removeFromCart(${item.id})" style="margin-left: 15px; color: var(--primary); background: none; border: none; cursor: pointer;">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+            
+            const discountAmount = (subtotal * currentDiscount) / 100;
+            const total = subtotal - discountAmount;
+            
+            document.getElementById('cartSubtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('cartDiscount').textContent = `-$${discountAmount.toFixed(2)}`;
+            document.getElementById('cartTotal').textContent = `$${total.toFixed(2)}`;
+            
+            if(cart.length === 0) {
+                container.innerHTML = '<p style="text-align: center; padding: 40px; color: var(--gray);">Your cart is empty</p>';
+            }
+        }
+
+        function updateQuantity(productId, change) {
+            const item = cart.find(item => item.id === productId);
+            if(item) {
+                item.quantity += change;
+                if(item.quantity <= 0) {
+                    cart = cart.filter(i => i.id !== productId);
                 }
+                updateCartCount();
+                updateCartModal();
+                localStorage.setItem('horlaz_cart', JSON.stringify(cart));
             }
         }
 
         function removeFromCart(productId) {
             cart = cart.filter(item => item.id !== productId);
             updateCartCount();
-            openCart();
-            showNotification('Item removed from cart', 'info');
+            updateCartModal();
+            localStorage.setItem('horlaz_cart', JSON.stringify(cart));
+            showNotification("Item removed from cart", "info");
         }
 
-        function openCart() {
-            const cartItems = document.getElementById('cartItems');
-            const cartSubtotal = document.getElementById('cartSubtotal');
-            const cartTotal = document.getElementById('cartTotal');
-            const deliveryFee = document.getElementById('deliveryFee');
-            
-            if (cart.length === 0) {
-                cartItems.innerHTML = '<p style="text-align: center; color: #666;">Your cart is empty</p>';
-                cartSubtotal.textContent = '₦0.00';
-                cartTotal.textContent = '₦0.00';
-            } else {
-                let subtotal = 0;
-                cartItems.innerHTML = '';
-                
-                cart.forEach((item) => {
-                    const itemTotal = item.price * item.quantity;
-                    subtotal += itemTotal;
-                    
-                    const cartItemDiv = document.createElement('div');
-                    cartItemDiv.className = 'cart-item';
-                    cartItemDiv.innerHTML = `
-                        <div class="cart-item-info">
-                            <h4>${item.name}</h4>
-                            <p>₦${item.price.toLocaleString()} each</p>
-                            <p style="color: #666;">Total: ₦${itemTotal.toLocaleString()}</p>
-                        </div>
-                        <div class="cart-item-actions">
-                            <button class="quantity-btn" onclick="updateCartQuantity(${item.id}, -1)">-</button>
-                            <span style="margin: 0 1rem; font-weight: bold;">${item.quantity}</span>
-                            <button class="quantity-btn" onclick="updateCartQuantity(${item.id}, 1)">+</button>
-                            <button onclick="removeFromCart(${item.id})" style="background: red; color: white; border: none; padding: 0.5rem; border-radius: 5px; cursor: pointer; margin-left: 1rem;">Remove</button>
-                        </div>
-                    `;
-                    cartItems.appendChild(cartItemDiv);
-                });
-                
-                const delivery = subtotal >= 50000 ? 0 : 2000;
-                const total = subtotal + delivery;
-                
-                cartSubtotal.textContent = `₦${subtotal.toLocaleString()}`;
-                deliveryFee.textContent = delivery === 0 ? 'FREE' : `₦${delivery.toLocaleString()}`;
-                cartTotal.textContent = `₦${total.toLocaleString()}`;
-            }
-            
-            openModal('cartModal');
-        }
-
-        // Payment Method Selection
-        function selectPaymentMethod(method) {
-            selectedPaymentMethod = method;
-            
-            document.querySelectorAll('.payment-method').forEach(el => {
-                el.classList.remove('selected');
-            });
+        function selectPayment(method) {
+            selectedPayment = method;
+            document.querySelectorAll('.payment-method').forEach(el => el.classList.remove('selected'));
             event.target.closest('.payment-method').classList.add('selected');
-            
-            showNotification(`${method.charAt(0).toUpperCase() + method.slice(1)} payment selected`, 'info');
         }
 
-        // WhatsApp Order Function
-        function sendWhatsAppOrder() {
-            if (cart.length === 0) {
-                showNotification('Your cart is empty!', 'error');
-                return;
-            }
-            
-            const orderRef = `HCW${orderCounter++}`;
-            let message = `🛍️ *HORLAZ CO WEAR ORDER*\n`;
-            message += `📋 Order Reference: ${orderRef}\n`;
-            message += `👤 Customer: ${user ? user.name : 'Guest Customer'}\n`;
-            message += `📅 Date: ${new Date().toLocaleDateString()}\n\n`;
-            message += `🛒 *ORDER DETAILS:*\n`;
-            
-            let subtotal = 0;
-            cart.forEach((item, index) => {
-                const itemTotal = item.price * item.quantity;
-                subtotal += itemTotal;
-                message += `${index + 1}. ${item.name}\n`;
-                message += `   💰 Price: ₦${item.price.toLocaleString()}\n`;
-                message += `   📦 Quantity: ${item.quantity}\n`;
-                message += `   💵 Subtotal: ₦${itemTotal.toLocaleString()}\n\n`;
-            });
-            
-            const delivery = subtotal >= 50000 ? 0 : 2000;
-            const total = subtotal + delivery;
-            
-            message += `📊 *ORDER SUMMARY:*\n`;
-            message += `Subtotal: ₦${subtotal.toLocaleString()}\n`;
-            message += `Delivery: ${delivery === 0 ? 'FREE' : `₦${delivery.toLocaleString()}`}\n`;
-            message += `*TOTAL: ₦${total.toLocaleString()}*\n\n`;
-            message += `📍 Please confirm your delivery address and preferred payment method.\n`;
-            message += `🚚 We offer same-day delivery within Lagos!\n\n`;
-            message += `Thank you for choosing HORLAZ CO WEAR! 🙏`;
-            
-            const whatsappUrl = `https://wa.me/2349154667099?text=${encodeURIComponent(message)}`;
-            
-            sendAdminNotification('whatsapp_order', {
-                orderRef: orderRef,
-                customer: user,
-                items: cart,
-                total: total
-            });
-            
-            cart = [];
-            updateCartCount();
-            closeModal('cartModal');
-            
-            window.open(whatsappUrl, '_blank');
-            showNotification('Order sent via WhatsApp! Please complete your order there.', 'success');
-        }
-
-        // Payment Integration Functions
-        function proceedToPayment() {
-            if (cart.length === 0) {
-                showNotification('Your cart is empty!', 'error');
-                return;
-            }
-            
-            if (!user) {
-                closeModal('cartModal');
-                openModal('loginModal');
-                showNotification('Please login to continue checkout', 'info');
-                return;
-            }
-            
-            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            const delivery = subtotal >= 50000 ? 0 : 2000;
-            const total = subtotal + delivery;
-            
-            switch(selectedPaymentMethod) {
-                case 'paystack':
-                    initiatePaystackPayment(total);
-                    break;
-                case 'flutterwave':
-                    initiateFlutterwavePayment(total);
-                    break;
-                case 'transfer':
-                    initiateBankTransfer(total);
-                    break;
-                case 'whatsapp':
-                    sendWhatsAppOrder();
-                    break;
-                default:
-                    showNotification('Please select a payment method', 'error');
-            }
-        }
-
-        function initiatePaystackPayment(amount) {
-            const orderRef = `HCW${orderCounter++}`;
-            
-            const handler = PaystackPop.setup({
-                key: 'pk_test_your_paystack_public_key',
-                email: user.email,
-                amount: amount * 100,
-                currency: 'NGN',
-                ref: orderRef,
-                callback: function(response) {
-                    completeOrder(orderRef, 'paystack', response.reference);
-                },
-                onClose: function() {
-                    showNotification('Payment cancelled', 'error');
-                }
-            });
-            
-            handler.openIframe();
-        }
-
-        function initiateFlutterwavePayment(amount) {
-            const orderRef = `HCW${orderCounter++}`;
-            
-            showNotification('Redirecting to Flutterwave payment...', 'info');
-            
-            setTimeout(() => {
-                completeOrder(orderRef, 'flutterwave', `flw_${orderRef}`);
-            }, 2000);
-        }
-
-        function initiateBankTransfer(amount) {
-            const orderRef = `HCW${orderCounter++}`;
-            
-            document.getElementById('transferAmount').textContent = `₦${amount.toLocaleString()}`;
-            document.getElementById('orderReference').textContent = orderRef;
-            
-            closeModal('cartModal');
-            openModal('bankTransferModal');
-            
-            window.pendingTransferOrder = { orderRef, amount };
-        }
-
-        function confirmTransfer() {
-            const orderData = window.pendingTransferOrder;
-            if (orderData) {
-                completeOrder(orderData.orderRef, 'bank_transfer', `transfer_${orderData.orderRef}`);
-                closeModal('bankTransferModal');
-                delete window.pendingTransferOrder;
-            }
-        }
-
-        function completeOrder(orderRef, paymentMethod, paymentRef) {
-            const orderData = {
-                orderRef: orderRef,
-                customer: user,
-                items: [...cart],
-                paymentMethod: paymentMethod,
-                paymentReference: paymentRef,
-                timestamp: new Date().toISOString(),
-                status: 'completed'
-            };
-            
-            sendAdminNotification('order_completed', orderData);
-            
-            cart = [];
-            updateCartCount();
-            closeModal('cartModal');
-            
-            showNotification(`Order ${orderRef} completed successfully! You will receive confirmation shortly.`, 'success');
-        }
-
-        function continueShopping() {
-            closeModal('cartModal');
-            document.getElementById('shop').scrollIntoView({behavior: 'smooth'});
-        }
-
-        // Contact Form Handler
-        function handleContactForm(event) {
-            event.preventDefault();
-            
-            const formData = {
-                name: document.getElementById('contactName').value,
-                email: document.getElementById('contactEmail').value,
-                phone: document.getElementById('contactPhone').value,
-                subject: document.getElementById('contactSubject').value,
-                message: document.getElementById('contactMessage').value
-            };
-            
-            showNotification('Sending your message...', 'info');
-            
-            setTimeout(() => {
-                sendAdminNotification('contact_form', formData);
-                document.getElementById('contactForm').reset();
-                showNotification('Message sent successfully! We will get back to you within 24 hours.', 'success');
-            }, 1500);
-        }
-
-        // Notification Functions
-        function showNotification(message, type = 'info') {
-            const notification = document.getElementById('notification');
-            const notificationMessage = document.getElementById('notificationMessage');
-            
-            if (type === 'success') {
-                notification.style.background = '#4CAF50';
-                notification.style.color = 'white';
-            } else if (type === 'error') {
-                notification.style.background = '#f44336';
-                notification.style.color = 'white';
+        function applyDiscount() {
+            const code = document.getElementById('discountCode').value.toUpperCase();
+            if(DISCOUNT_CODES[code]) {
+                currentDiscount = DISCOUNT_CODES[code];
+                updateCartModal();
+                showNotification(`Discount ${currentDiscount}% applied!`, "success");
             } else {
-                notification.style.background = 'var(--primary-gold)';
-                notification.style.color = 'var(--luxury-black)';
+                showNotification("Invalid discount code", "error");
+            }
+        }
+
+        function orderViaWhatsApp() {
+            if(cart.length === 0) {
+                showNotification("Your cart is empty!", "error");
+                return;
             }
             
-            notificationMessage.textContent = message;
-            notification.style.display = 'block';
+            let message = "Hello! I'd like to order:\n\n";
+            let total = 0;
             
-            setTimeout(closeNotification, 5000);
+            cart.forEach(item => {
+                message += `• ${item.name} × ${item.quantity} - $${(item.price * item.quantity).toFixed(2)}\n`;
+                total += item.price * item.quantity;
+            });
+            
+            message += `\nTotal: $${total.toFixed(2)}\n`;
+            message += `Payment Method: ${selectedPayment.toUpperCase()}\n\n`;
+            message += "Please contact me to complete the order!";
+            
+            const encoded = encodeURIComponent(message);
+            const phone = "1234567890"; // Replace with actual number
+            
+            window.open(`https://wa.me/${phone}?text=${encoded}`, '_blank');
+            showNotification("Opening WhatsApp...", "success");
         }
 
-        function closeNotification() {
-            document.getElementById('notification').style.display = 'none';
-        }
-
-        // Admin Notification Function
-        function sendAdminNotification(eventType, data) {
-            const adminData = {
-                type: eventType,
-                data: data,
-                timestamp: new Date().toISOString(),
-                adminEmail: 'Horlazbrandwearcollection@gmail.com',
-                adminPhone: '+2349154667099'
+        function checkout() {
+            if(cart.length === 0) {
+                showNotification("Your cart is empty!", "error");
+                return;
+            }
+            
+            const order = {
+                id: Date.now(),
+                items: [...cart],
+                total: document.getElementById('cartTotal').textContent,
+                payment: selectedPayment,
+                date: new Date().toLocaleString(),
+                status: 'Processing'
             };
             
-            console.log('Admin Notification:', adminData);
+            // Save order
+            const orders = JSON.parse(localStorage.getItem('horlaz_orders') || '[]');
+            orders.push(order);
+            localStorage.setItem('horlaz_orders', JSON.stringify(orders));
             
-            setTimeout(() => {
-                console.log(`✅ Email sent to Horlazbrandwearcollection@gmail.com`);
-                console.log(`📱 SMS sent to +2349154667099`);
-                
-                if (eventType === 'whatsapp_order' || eventType === 'order_completed') {
-                    const adminMessage = `🚨 NEW ORDER ALERT!\nOrder: ${data.orderRef || 'N/A'}\nCustomer: ${data.customer ? data.customer.name : 'Guest'}\nTotal: ₦${data.total ? data.total.toLocaleString() : 'N/A'}\nTime: ${new Date().toLocaleString()}`;
-                    console.log(`📲 Admin WhatsApp notification: ${adminMessage}`);
-                }
-            }, 1000);
+            // Clear cart
+            cart = [];
+            updateCartCount();
+            updateCartModal();
+            localStorage.setItem('horlaz_cart', '[]');
+            
+            closeCart();
+            
+            // Show confirmation
+            const html = `
+                <div style="text-align: center; padding: 40px;">
+                    <div style="font-size: 80px; color: var(--success); margin-bottom: 20px;">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h2>Order Placed Successfully!</h2>
+                    <p style="margin: 20px 0;">Order ID: #${order.id}</p>
+                    <p>We'll contact you shortly for confirmation.</p>
+                    <button class="btn" onclick="this.parentElement.parentElement.remove()" style="margin-top: 30px;">
+                        Continue Shopping
+                    </button>
+                </div>
+            `;
+            
+            const div = document.createElement('div');
+            div.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.8);z-index:10002;display:flex;align-items:center;justify-content:center;';
+            div.innerHTML = html;
+            document.body.appendChild(div);
         }
 
-        // Countdown Timer
-        function startCountdown() {
-            let timeLeft = 24 * 60 * 60 - 1;
-            const countdown = document.getElementById('countdown');
+        function toggleWishlist(productId) {
+            const index = wishlist.indexOf(productId);
+            if(index === -1) {
+                wishlist.push(productId);
+                showNotification("Added to wishlist", "success");
+            } else {
+                wishlist.splice(index, 1);
+                showNotification("Removed from wishlist", "info");
+            }
             
-            setInterval(() => {
-                const hours = Math.floor(timeLeft / 3600);
-                const minutes = Math.floor((timeLeft % 3600) / 60);
-                const seconds = timeLeft % 60;
-                
-                countdown.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-                
-                if (timeLeft <= 0) {
-                    timeLeft = 24 * 60 * 60 - 1;
-                }
-                timeLeft--;
-            }, 1000);
+            document.getElementById('wishlistCount').textContent = wishlist.length;
+            localStorage.setItem('horlaz_wishlist', JSON.stringify(wishlist));
+            renderProducts();
         }
 
-        // Purchase Notifications
-        function showPurchaseNotification() {
-            const customers = ['Adebayo from Lagos', 'Fatima from Abuja', 'Chidi from Port Harcourt', 'Aisha from Kano'];
-            const productNames = products.map(p => p.name);
-            
-            const customer = customers[Math.floor(Math.random() * customers.length)];
-            const product = productNames[Math.floor(Math.random() * productNames.length)];
-            
-            showNotification(`🔥 ${customer} just purchased ${product}!`, 'info');
+        function filterProducts(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            renderProducts(category);
         }
 
-        // Animation on Scroll
-        function setupAnimations() {
-            const elements = document.querySelectorAll('.animate-on-scroll');
+        function sortProducts(value) {
+            if(value === 'price-low') {
+                products.sort((a,b) => a.price - b.price);
+            } else if(value === 'price-high') {
+                products.sort((a,b) => b.price - a.price);
+            } else {
+                products.sort((a,b) => b.id - a.id);
+            }
+            renderProducts();
+        }
+
+        function showNotification(message, type = "info") {
+            const div = document.createElement('div');
+            div.textContent = message;
+            div.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? 'var(--success)' : type === 'error' ? 'var(--primary)' : 'var(--dark)'};
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                z-index: 10003;
+                animation: slideIn 0.3s;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            `;
             
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animated');
-                    }
-                });
+            document.body.appendChild(div);
+            setTimeout(() => div.remove(), 3000);
+        }
+
+        // ======================
+        // ADMIN DASHBOARD FUNCTIONS
+        // ======================
+        function addNewProduct() {
+            const name = prompt("Product name:");
+            const price = parseFloat(prompt("Price:"));
+            const image = prompt("Image URL:");
+            
+            if(name && price && image) {
+                const newProduct = {
+                    id: products.length + 1,
+                    name,
+                    price,
+                    image,
+                    category: "unisex",
+                    tag: "new",
+                    color: "Black"
+                };
+                
+                products.push(newProduct);
+                localStorage.setItem('horlaz_products', JSON.stringify(products));
+                renderProducts();
+                showNotification("Product added successfully!", "success");
+            }
+        }
+
+        function manageProducts() {
+            let html = '<div style="max-height: 400px; overflow-y: auto;"><table style="width: 100%; border-collapse: collapse;"><tr><th>ID</th><th>Name</th><th>Price</th><th>Actions</th></tr>';
+            
+            products.forEach(product => {
+                html += `
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 10px;">${product.id}</td>
+                        <td style="padding: 10px;">${product.name}</td>
+                        <td style="padding: 10px;">$${product.price}</td>
+                        <td style="padding: 10px;">
+                            <button onclick="editProduct(${product.id})" style="background: var(--primary); color: white; border: none; padding: 5px 10px; border-radius: 5px; margin-right: 5px;">Edit</button>
+                            <button onclick="deleteProduct(${product.id})" style="background: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 5px;">Delete</button>
+                        </td>
+                    </tr>
+                `;
             });
             
-            elements.forEach(el => observer.observe(el));
+            html += '</table></div>';
+            
+            const div = document.createElement('div');
+            div.style.cssText = 'background: white; padding: 30px; border-radius: 15px; max-width: 800px; margin: 20px auto;';
+            div.innerHTML = `<h3>Product Management</h3>${html}<button class="btn" onclick="this.parentElement.parentElement.remove()" style="margin-top: 20px;">Close</button>`;
+            
+            const overlay = document.createElement('div');
+            overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);z-index:10003;display:flex;align-items:center;justify-content:center;';
+            overlay.appendChild(div);
+            document.body.appendChild(overlay);
         }
 
-        // Smooth Scrolling for Navigation
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
+        // ======================
+        // INITIALIZATION
+        // ======================
+        window.onload = function() {
+            loadSavedContent();
+            
+            // Load wishlist
+            const savedWishlist = localStorage.getItem('horlaz_wishlist');
+            if(savedWishlist) wishlist = JSON.parse(savedWishlist);
+            document.getElementById('wishlistCount').textContent = wishlist.length;
+            
+            // Event listeners
+            document.getElementById('adminBtn').addEventListener('click', () => {
+                document.getElementById('adminPanel').style.display = 'block';
             });
-        });
-
-        // Close modals when clicking outside
-        window.addEventListener('click', function(event) {
-            const modals = document.querySelectorAll('.modal');
-            modals.forEach(modal => {
-                if (event.target === modal) {
-                    modal.style.display = 'none';
+            
+            document.getElementById('cartOverlay').addEventListener('click', closeCart);
+            
+            document.addEventListener('click', (e) => {
+                if(!document.getElementById('adminPanel').contains(e.target) && !document.getElementById('adminBtn').contains(e.target)) {
+                    document.getElementById('adminPanel').style.display = 'none';
                 }
             });
-        });
+        };
+        // PRODUCT MANAGEMENT FUNCTIONS
+function openProductManagement() {
+    document.getElementById('productModal').style.display = 'block';
+    showProductList();
+}
+
+function closeProductModal() {
+    document.getElementById('productModal').style.display = 'none';
+}
+
+function showAddProductForm() {
+    document.getElementById('addProductForm').style.display = 'block';
+    document.getElementById('productList').style.display = 'none';
+    
+    // Clear form
+    document.getElementById('newProductName').value = '';
+    document.getElementById('newProductPrice').value = '';
+    document.getElementById('newProductImage').value = '';
+    document.getElementById('newProductCategory').value = '';
+    document.getElementById('newProductColor').value = '';
+    document.getElementById('newProductTag').value = '';
+}
+
+function showProductList() {
+    document.getElementById('addProductForm').style.display = 'none';
+    document.getElementById('productList').style.display = 'block';
+    renderProductList();
+}
+
+function renderProductList() {
+    const container = document.getElementById('productListContainer');
+    container.innerHTML = '';
+    
+    if (products.length === 0) {
+        container.innerHTML = '<p style="text-align: center; padding: 30px; color: #666;">No products yet. Add your first product!</p>';
+        return;
+    }
+    
+    products.forEach(product => {
+        const div = document.createElement('div');
+        div.className = 'product-item';
+        div.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <img src="${product.image}" alt="${product.name}">
+                <div>
+                    <strong>${product.name}</strong><br>
+                    <small>$${product.price} | ${product.category} | ${product.color}</small>
+                </div>
+            </div>
+            <div class="product-actions">
+                <button class="edit-btn" onclick="editProduct(${product.id})">
+                    <i class="fas fa-edit"></i> Edit
+                </button>
+                <button class="delete-btn" onclick="deleteProduct(${product.id})">
+                    <i class="fas fa-trash"></i> Delete
+                </button>
+            </div>
+        `;
+        container.appendChild(div);
+    });
+}
+
+function addNewProduct() {
+    const name = document.getElementById('newProductName').value;
+    const price = parseFloat(document.getElementById('newProductPrice').value);
+    const image = document.getElementById('newProductImage').value;
+    const category = document.getElementById('newProductCategory').value;
+    const color = document.getElementById('newProductColor').value;
+    const tag = document.getElementById('newProductTag').value;
+    
+    if (!name || !price || !image) {
+        alert("Please fill in at least Name, Price, and Image URL");
+        return;
+    }
+    
+    const newProduct = {
+        id: products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1,
+        name: name,
+        price: price,
+        image: image,
+        category: category || 'unisex',
+        color: color || 'Black',
+        tag: tag || ''
+    };
+    
+    products.push(newProduct);
+    localStorage.setItem('horlaz_products', JSON.stringify(products));
+    
+    showNotification(`"${name}" added successfully!`, 'success');
+    renderProductList();
+    renderProducts(); // Update main product display
+    
+    // Switch back to product list
+    showProductList();
+}
+
+function editProduct(productId) {
+    const product = products.find(p => p.id === productId);
+    if (!product) return;
+    
+    const newName = prompt("Edit product name:", product.name);
+    if (newName === null) return; // User cancelled
+    
+    const newPrice = prompt("Edit price:", product.price);
+    const newImage = prompt("Edit image URL:", product.image);
+    const newCategory = prompt("Edit category (men/women/unisex):", product.category);
+    const newColor = prompt("Edit color:", product.color);
+    const newTag = prompt("Edit tag (new/sale/leave empty):", product.tag);
+    
+    if (newName) product.name = newName;
+    if (newPrice) product.price = parseFloat(newPrice);
+    if (newImage) product.image = newImage;
+    if (newCategory) product.category = newCategory;
+    if (newColor) product.color = newColor;
+    if (newTag !== null) product.tag = newTag;
+    
+    localStorage.setItem('horlaz_products', JSON.stringify(products));
+    showNotification("Product updated!", 'success');
+    renderProductList();
+    renderProducts();
+}
+
+function deleteProduct(productId) {
+    if (!confirm("Are you sure you want to delete this product?")) return;
+    
+    products = products.filter(p => p.id !== productId);
+    localStorage.setItem('horlaz_products', JSON.stringify(products));
+    
+    // Also remove from cart if present
+    cart = cart.filter(item => item.id !== productId);
+    localStorage.setItem('horlaz_cart', JSON.stringify(cart));
+    updateCartCount();
+    
+    showNotification("Product deleted!", 'info');
+    renderProductList();
+    renderProducts();
+}
+
+// Add to your existing showNotification function if not exists
+function showNotification(message, type = "info") {
+    const div = document.createElement('div');
+    div.textContent = message;
+    div.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${type === 'success' ? '#28a745' : type === 'error' ? '#dc3545' : type === 'info' ? '#c41e3a' : '#333'};
+        color: white;
+        padding: 15px 25px;
+        border-radius: 10px;
+        z-index: 10003;
+        animation: fadeIn 0.3s;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    `;
+    
+    document.body.appendChild(div);
+    setTimeout(() => div.remove(), 3000);
+}
     </script>
 </body>
 </html>
